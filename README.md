@@ -1,5 +1,7 @@
 # Catalog API Tests .NET Core
 
+Esse projeto tem como intuito criar uma API simples de catálogo de produtos com testes de **Integração** e **Unidade**.
+
 Asp .net Core 2.2
 
 ### Por padrão a API está configurada com banco de dados em memória
