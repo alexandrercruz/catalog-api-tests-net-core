@@ -18,3 +18,10 @@ Asp .net Core 2.2
 ```Update-Database```
 
 ### Run Application 
+
+## Resources
+
+Lista de resources disponíveis na API:
+
+- Categories ```http://localhost:5000/api/v1/categories```
+- Products ```http://localhost:5000//api/v1/products```
