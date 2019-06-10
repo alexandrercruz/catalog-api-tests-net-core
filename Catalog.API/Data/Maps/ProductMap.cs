@@ -1,0 +1,34 @@
+﻿using Catalog.API.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Catalog.API.Data.Maps
+{
+    public class ProductMap : IEntityTypeConfiguration<Product>
+    {
+        public void Configure(EntityTypeBuilder<Product> builder)
+        {
+            builder.ToTable("Product");
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Description)
+                   .IsRequired()
+                   .HasMaxLength(1024)
+                   .HasColumnType("varchar(1024)");
+            builder.Property(x => x.Price)
+                   .IsRequired()
+                   .HasColumnType("money");
+            builder.Property(x => x.Quantity)
+                   .IsRequired();
+            builder.Property(x => x.Title)
+                   .IsRequired()
+                   .HasMaxLength(120)
+                   .HasColumnType("varchar(120)");
+            builder.Property(x => x.CreatedAt)
+                   .IsRequired();
+            builder.Property(x => x.UpdatedAt)
+                   .IsRequired();
+            builder.HasOne(x => x.Category)
+                   .WithMany(x => x.Products);
+        }
+    }
+}
